@@ -7,11 +7,11 @@ const pages = {
   curriculum: { title: 'Curriculum | CapyChess', main: 'curriculum-content' },
   teachers: { title: 'Teachers | CapyChess', main: 'teachers-content' },
   about: { title: 'About Us | CapyChess', main: 'about-content' },
+  events: { title: 'Events | CapyChess', main: 'events-content' },
 };
 const dist = path.join(root, 'dist');
 const layout = fs.readFileSync(path.join(root, 'src/layout.html'), 'utf8');
 function build() {
-  fs.rmSync(dist, { recursive:true, force:true });
   fs.mkdirSync(dist, { recursive:true });
   fs.cpSync(path.join(root, 'assets'), path.join(dist, 'assets'), { recursive:true, force:true });
   for (const [name, page] of Object.entries(pages)) {
@@ -23,10 +23,10 @@ function build() {
     const file = `${name}.html`;
     // Mark only the current navigation item, on desktop and mobile.
     output = output.replace(/(<a\s+href="(?:index|services|curriculum|teachers|about)\.html")\s+aria-current="page"/g, '$1');
-    const label = { index:'Home', services:'Services', curriculum:'Curriculum', teachers:'Teachers', about:'About Us' }[name];
+    const label = { index:'Home', services:'Services', curriculum:'Curriculum', teachers:'Teachers', about:'About Us', events:'Events' }[name];
     output = output.replace(new RegExp(`(<a\\s+href="${file}")(?=\\s*>${label}<\\/a>)`, 'g'), '$1 aria-current="page"');
     const prefix = name === 'index' ? '' : '../';
-    output = output.replace(/href="(index|services|curriculum|teachers|about)\.html(#[^"]*)?"/g,
+    output = output.replace(/href="(index|services|curriculum|teachers|about|events)\.html(#[^"]*)?"/g,
       (_, target, hash = '') => `href="${prefix}${target === 'index' ? '' : target + '/'}${hash}"`);
     if (prefix) output = output.replace(/(href|src)="assets\//g, `$1="${prefix}assets/`);
     const destination = name === 'index' ? dist : path.join(dist, name);

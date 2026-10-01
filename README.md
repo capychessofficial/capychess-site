@@ -1,11 +1,11 @@
 # CapyChess website
 
-A static, five-page site with one shared layout. It uses Node.js for local preview and page generation, with no package dependencies.
+A static, six-page site with one shared layout. It uses Node.js for local preview and page generation, with no package dependencies.
 
 ## Structure
 
 - `src/layout.html` — shared document, header, navigation, and footer
-- `src/pages/` — page content for Home, Services, Curriculum, Teachers, and About Us
+- `src/pages/` — page content for Home, Services, Curriculum, Teachers, About Us, and Events
 - `assets/styles.css` — shared styling
 - `assets/main.js` — page interactions
 - `assets/` — named images and fonts
@@ -24,4 +24,4 @@ Pushes to `main` build and deploy `dist/` through `.github/workflows/deploy-page
 
 ## URLs
 
-The build writes each page to a folder with an `index.html`, so GitHub Pages serves `/services/`, `/teachers/`, `/curriculum/`, and `/about/`. Legacy `.html` URLs redirect to the new paths.
+The build writes each page to a folder with an `index.html`, so GitHub Pages serves `/services/`, `/teachers/`, `/curriculum/`, `/about/`, and `/events/`. Legacy `.html` URLs redirect to the new paths.

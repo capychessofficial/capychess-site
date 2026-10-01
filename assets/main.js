@@ -18,5 +18,5 @@ const formats=[{"name": "Private lessons", "tag": "Online \u00b7 Onsite", "desc"
 }
 document.querySelectorAll('.mobile-nav nav a').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('.mobile-nav').forEach(d=>d.open=false)}));
 // Keep previously shared preview hash links usable.
-const legacy={home:'./',services:'services/',teachers:'teachers/',curriculum:'curriculum/',about:'about/','lesson-formats':'services/#lesson-formats','teaching-team':'teachers/#teaching-team','learning-stages':'curriculum/#learning-stages','our-story':'about/#our-story','co-founders':'about/#co-founders'};
+const legacy={home:'./',services:'services/',teachers:'teachers/',curriculum:'curriculum/',about:'about/',events:'events/','lesson-formats':'services/#lesson-formats','teaching-team':'teachers/#teaching-team','learning-stages':'curriculum/#learning-stages','our-story':'about/#our-story','co-founders':'about/#co-founders'};
 if(location.pathname.endsWith('/')||location.pathname.endsWith('/index.html')){const target=legacy[location.hash.slice(1)];if(target)location.replace(target);}
