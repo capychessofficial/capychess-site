@@ -21,3 +21,7 @@ Edit `src/layout.html` for changes shared across pages. Edit `src/pages/*.html` 
 ## GitHub Pages
 
 Pushes to `main` build and deploy `dist/` through `.github/workflows/deploy-pages.yml`. In **Settings → Pages**, set the build and deployment source to **GitHub Actions**.
+
+## URLs
+
+The build writes each page to a folder with an `index.html`, so GitHub Pages serves `/services/`, `/teachers/`, `/curriculum/`, and `/about/`. Legacy `.html` URLs redirect to the new paths.

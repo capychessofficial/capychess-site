@@ -24,7 +24,9 @@ http.createServer((req,res)=>{
     const url = new URL(req.url,'http://localhost');
     res.setHeader('Cache-Control','no-store');
     if(url.pathname==='/__version'){res.end(String(revision));return;}
-    const file = path.resolve(dist,'.'+decodeURIComponent(url.pathname==='/'?'/index.html':url.pathname));
+    let pathname = decodeURIComponent(url.pathname);
+    if(pathname.endsWith('/')) pathname += 'index.html';
+    const file = path.resolve(dist,'.'+pathname);
     if(!file.startsWith(dist+path.sep)){res.writeHead(403);res.end();return;}
     const ext = path.extname(file);
     res.setHeader('Content-Type',types[ext]||'application/octet-stream');
