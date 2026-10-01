@@ -17,3 +17,7 @@ A static, five-page site with one shared layout. It uses Node.js for local previ
 From this folder, run `npm run dev`, then open <http://127.0.0.1:4173>.
 
 Edit `src/layout.html` for changes shared across pages. Edit `src/pages/*.html` for page content. Changes to templates and assets refresh automatically. Run `npm run build` before uploading to any static host. The `dist/` folder is generated and ignored by Git. Publish the contents of `dist/`; no server-side runtime is needed after build.
+
+## GitHub Pages
+
+Pushes to `main` build and deploy `dist/` through `.github/workflows/deploy-pages.yml`. In **Settings → Pages**, set the build and deployment source to **GitHub Actions**.
